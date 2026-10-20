@@ -1,0 +1,1380 @@
+/* ============================================================
+   🏫 SISTEMA DE BOLETINES - ESTILOS GLOBALES
+   U.E.E. Monseñor Rafael Arias Blanco
+   ============================================================
+   ESTA VERSIÓN INCLUYE:
+   - Fondo uniforme (igual al login)
+   - Fuentes Playfair Display + Inter
+   - Diseño consistente en todo el sistema
+   ============================================================ */
+
+/* ===== IMPORTAR FUENTES ===== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ============================================================
+   1. RESET Y BASE
+   ============================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    padding: 20px;
+    background: 
+        linear-gradient(135deg, rgba(26, 54, 93, 0.92) 0%, rgba(26, 54, 93, 0.82) 100%),
+        url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* ============================================================
+   2. CONTENEDORES
+   ============================================================ */
+.login-wrapper {
+    max-width: 440px;
+    width: 100%;
+    margin: 0 auto;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.container-dashboard {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   3. TARJETAS (Glassmorphism)
+   ============================================================ */
+.login-card,
+.card,
+.admin-container,
+.register-card,
+.ayuda-card,
+.boletin-paper {
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 35px 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.admin-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 25px;
+}
+
+.login-card::before,
+.card::before,
+.admin-container::before,
+.register-card::before,
+.ayuda-card::before,
+.boletin-paper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #1a365d, #e8c84c, #1a365d);
+    background-size: 200% 100%;
+    animation: gradientMove 4s ease-in-out infinite;
+}
+
+@keyframes gradientMove {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* ============================================================
+   4. LOGO
+   ============================================================ */
+.logo-institucion {
+    display: block;
+    max-width: 80px;
+    height: auto;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    background: white;
+    padding: 6px;
+    border: 3px solid #e8c84c;
+    box-shadow: 0 8px 30px rgba(232, 200, 76, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.logo-institucion:hover {
+    transform: scale(1.05) rotate(-3deg);
+}
+
+/* ============================================================
+   5. ENCABEZADO Y TÍTULOS
+   ============================================================ */
+.encabezado {
+    text-align: center;
+    padding-bottom: 15px;
+    margin-bottom: 18px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+}
+
+.encabezado h1 {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: #1a365d;
+}
+
+.encabezado h2 {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a365d;
+}
+
+.encabezado h3 {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a365d;
+}
+
+.encabezado h2 span,
+.encabezado h3 span {
+    color: #e8c84c;
+}
+
+.encabezado p {
+    font-family: 'Inter', sans-serif;
+    color: #718096;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+}
+
+.login-title {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.login-title h2 {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 24px;
+    font-weight: 900;
+    color: #1a365d;
+}
+
+.login-title h2 span {
+    color: #e8c84c;
+}
+
+.login-title p {
+    font-family: 'Inter', sans-serif;
+    color: #718096;
+    font-size: 13px;
+    margin-top: 3px;
+}
+
+/* ============================================================
+   6. FORMULARIOS
+   ============================================================ */
+.form-group {
+    margin-bottom: 14px;
+}
+
+.form-group label {
+    font-family: 'Inter', sans-serif;
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 4px;
+}
+
+.form-group label .required {
+    color: #e53e3e;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #a0aec0;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+    padding: 11px 16px 11px 40px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 14px;
+    background: #f7fafc;
+    color: #1a202c;
+    transition: all 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #1a365d;
+    background: #ffffff;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(26, 54, 93, 0.08);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #a0aec0;
+}
+
+.form-group textarea {
+    min-height: 80px;
+    resize: vertical;
+    padding: 11px 16px;
+}
+
+.form-group select {
+    padding: 11px 16px;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%234a5568' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 12px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #a0aec0;
+    padding: 4px;
+    font-weight: 700;
+    transition: color 0.3s;
+}
+
+.toggle-password:hover {
+    color: #4a5568;
+}
+
+/* ============================================================
+   7. OPCIONES DEL FORMULARIO
+   ============================================================ */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.form-options .remember {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #4a5568;
+    cursor: pointer;
+}
+
+.form-options .remember input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #1a365d;
+    cursor: pointer;
+}
+
+.forgot-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #1a365d;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.forgot-link:hover {
+    color: #e8c84c;
+}
+
+/* ============================================================
+   8. BOTONES
+   ============================================================ */
+.btn {
+    font-family: 'Inter', sans-serif;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #1a365d, #2d4a7a);
+    color: white;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 8px 25px rgba(26, 54, 93, 0.3);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #48bb78, #38a169);
+    color: white;
+}
+
+.btn-success:hover {
+    box-shadow: 0 8px 25px rgba(72, 187, 120, 0.3);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #fc8181, #e53e3e);
+    color: white;
+}
+
+.btn-danger:hover {
+    box-shadow: 0 8px 25px rgba(252, 129, 129, 0.3);
+}
+
+.btn-warning {
+    background: linear-gradient(135deg, #f6ad55, #dd6b20);
+    color: white;
+}
+
+.btn-sm {
+    padding: 6px 14px;
+    font-size: 12px;
+    border-radius: 8px;
+}
+
+.btn-login {
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(135deg, #1a365d, #2d4a7a);
+    cursor: pointer;
+    transition: all 0.3s;
+    letter-spacing: 0.5px;
+}
+
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(26, 54, 93, 0.3);
+}
+
+/* ============================================================
+   9. DIVISORES
+   ============================================================ */
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 18px 0;
+    gap: 16px;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e2e8f0;
+}
+
+.divider span {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    color: #a0aec0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* ============================================================
+   10. ENLACES
+   ============================================================ */
+.links-inferiores {
+    margin-top: 18px;
+    text-align: center;
+    font-size: 13px;
+    border-top: 1px dashed #e2e8f0;
+    padding-top: 16px;
+}
+
+.links-inferiores a {
+    font-family: 'Inter', sans-serif;
+    color: #1a365d;
+    text-decoration: none;
+    margin: 0 6px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.links-inferiores a:hover {
+    color: #e8c84c;
+}
+
+.register-section {
+    text-align: center;
+}
+
+.register-section p {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #4a5568;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.register-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.register-links a {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #718096;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 7px 16px;
+    border-radius: 20px;
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.register-links a:hover {
+    color: #1a365d;
+    border-color: #1a365d;
+    background: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* ============================================================
+   11. MENSAJES
+   ============================================================ */
+.alert {
+    font-family: 'Inter', sans-serif;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.alert-success {
+    background: #f0fff4;
+    color: #276749;
+    border-left: 4px solid #48bb78;
+}
+
+.alert-error {
+    background: #fff5f5;
+    color: #c53030;
+    border-left: 4px solid #fc8181;
+}
+
+.alert-warning {
+    background: #fffff0;
+    color: #975a16;
+    border-left: 4px solid #f6ad55;
+}
+
+.alert-info {
+    background: #ebf8ff;
+    color: #2a69ac;
+    border-left: 4px solid #4299e1;
+}
+
+.error-msg {
+    font-family: 'Inter', sans-serif;
+    background: #fff5f5;
+    color: #c53030;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-weight: 500;
+    font-size: 13px;
+    border-left: 4px solid #fc8181;
+}
+
+/* ============================================================
+   12. TABLAS
+   ============================================================ */
+.table-responsive {
+    overflow-x: auto;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.table thead {
+    background: linear-gradient(135deg, #1a365d, #2d4a7a);
+    color: white;
+}
+
+.table th {
+    font-family: 'Inter', sans-serif;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.table td {
+    font-family: 'Inter', sans-serif;
+    padding: 10px 14px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #4a5568;
+}
+
+.table tbody tr:hover td {
+    background: #f7fafc;
+}
+
+/* ============================================================
+   13. BADGES
+   ============================================================ */
+.badge {
+    font-family: 'Inter', sans-serif;
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.badge-success { background: #c6f6d5; color: #276749; }
+.badge-warning { background: #fefcbf; color: #975a16; }
+.badge-danger { background: #fed7d7; color: #9b2c2c; }
+.badge-info { background: #bee3f8; color: #2a69ac; }
+.badge-draft { background: #e2e8f0; color: #475569; }
+.badge-published { background: #bee3f8; color: #2a69ac; }
+.badge-confirmed { background: #c6f6d5; color: #276749; }
+
+/* ============================================================
+   14. ESTADÍSTICAS
+   ============================================================ */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 16px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-left: 4px solid #1a365d;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+}
+
+.stat-number {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 26px;
+    font-weight: 900;
+    color: #1a365d;
+}
+
+.stat-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: #718096;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ============================================================
+   15. HEADER ADMIN
+   ============================================================ */
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 14px 20px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px);
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+}
+
+.admin-header h1 {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.admin-header h1 span {
+    color: #e8c84c;
+}
+
+.admin-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 6px 12px 6px 16px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.admin-user .user-icon {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #e8c84c, #d4a830);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a365d;
+}
+
+.admin-user .user-name {
+    font-family: 'Inter', sans-serif;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.admin-user .user-role {
+    font-family: 'Inter', sans-serif;
+    background: rgba(232, 200, 76, 0.2);
+    color: #e8c84c;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-logout {
+    font-family: 'Inter', sans-serif;
+    background: rgba(252, 129, 129, 0.15);
+    color: #fc8181;
+    padding: 6px 14px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 12px;
+    transition: all 0.3s;
+    border: 1px solid rgba(252, 129, 129, 0.15);
+}
+
+.btn-logout:hover {
+    background: #fc8181;
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(252, 129, 129, 0.3);
+}
+
+/* ============================================================
+   16. GRID ADMIN
+   ============================================================ */
+.admin-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.admin-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.admin-card h2 {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 17px;
+    color: #1a365d;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.admin-card h2 .badge-count {
+    font-family: 'Inter', sans-serif;
+    background: #e2e8f0;
+    color: #4a5568;
+    font-size: 12px;
+    padding: 0 10px;
+    border-radius: 20px;
+    margin-left: auto;
+}
+
+/* ============================================================
+   17. ACCIONES RÁPIDAS
+   ============================================================ */
+.action-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.action-btn {
+    font-family: 'Inter', sans-serif;
+    background: rgba(247, 250, 252, 0.8);
+    padding: 10px 12px;
+    text-align: center;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #2d3748;
+    font-weight: 600;
+    font-size: 13px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.action-btn:hover {
+    background: #1a365d;
+    color: white;
+    border-color: #1a365d;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(26, 54, 93, 0.2);
+}
+
+/* ============================================================
+   18. BOTONES PEQUEÑOS
+   ============================================================ */
+.btn-sm-custom {
+    font-family: 'Inter', sans-serif;
+    padding: 4px 10px;
+    font-size: 11px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.btn-sm-custom:hover {
+    transform: scale(1.05);
+}
+
+.btn-edit { background: #e8c84c; color: #1a365d; }
+.btn-edit:hover { background: #d4a830; }
+
+.btn-delete { background: #fc8181; color: white; }
+.btn-delete:hover { background: #e53e3e; }
+
+.btn-publish { background: #48bb78; color: white; }
+.btn-publish:hover { background: #38a169; }
+
+.btn-share { background: #25D366; color: white; }
+.btn-share:hover { background: #128C7E; }
+
+.btn-email { background: #D44638; color: white; }
+.btn-email:hover { background: #B23121; }
+
+.btn-copy { background: #4299e1; color: white; }
+.btn-copy:hover { background: #2b6cb0; }
+
+.btn-approve { background: #48bb78; color: white; }
+.btn-approve:hover { background: #38a169; }
+
+.btn-reject { background: #fc8181; color: white; }
+.btn-reject:hover { background: #e53e3e; }
+
+/* ============================================================
+   19. BOLETINES (Vista Representante)
+   ============================================================ */
+.boletin-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.boletin-paper {
+    padding: 30px 28px;
+}
+
+.boletin-paper .boletin-header {
+    text-align: center;
+    border-bottom: 2px solid #1a365d;
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+}
+
+.boletin-paper .boletin-header h1 {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 19px;
+    color: #1a365d;
+    font-weight: 800;
+}
+
+.boletin-paper .boletin-header h2 {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 15px;
+    color: #1a365d;
+    font-weight: 700;
+}
+
+.boletin-paper .boletin-header p {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: #4a5568;
+}
+
+.boletin-paper .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 16px;
+    background: #f7fafc;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.boletin-paper .info-grid .label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    color: #2d3748;
+    font-size: 12px;
+}
+
+.boletin-paper .info-grid .value {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #1a202c;
+}
+
+.boletin-paper .observacion-texto {
+    font-family: 'Inter', sans-serif;
+    background: #f7fafc;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border-left: 4px solid #1a365d;
+    margin: 12px 0;
+    line-height: 1.6;
+    font-size: 13px;
+    color: #2d3748;
+    white-space: pre-wrap;
+}
+
+.boletin-paper .literal-box {
+    text-align: center;
+    padding: 14px;
+    margin: 12px 0;
+    background: #ebf8ff;
+    border-radius: 8px;
+    border: 2px solid #90cdf4;
+}
+
+.boletin-paper .literal-box .literal {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 38px;
+    font-weight: 900;
+    color: #1a365d;
+}
+
+.boletin-paper .literal-box .descripcion {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #2a69ac;
+    margin-top: 4px;
+}
+
+.boletin-paper .promocion {
+    text-align: center;
+    padding: 10px;
+    background: #f0fff4;
+    border-radius: 8px;
+    border: 2px solid #48bb78;
+    margin: 12px 0;
+}
+
+.boletin-paper .promocion .si {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    color: #276749;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.boletin-paper .promocion .no {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    color: #e53e3e;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.boletin-paper .firmas {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 2px solid #e2e8f0;
+}
+
+.boletin-paper .firma-box {
+    text-align: center;
+}
+
+.boletin-paper .firma-box .linea {
+    border-bottom: 2px solid #a0aec0;
+    margin: 4px 0;
+    min-height: 25px;
+}
+
+.boletin-paper .firma-box .label {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    color: #4a5568;
+}
+
+.estado-boletin {
+    display: inline-block;
+    padding: 3px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+}
+
+.estado-published {
+    background: #bee3f8;
+    color: #2a69ac;
+}
+
+.estado-confirmed {
+    background: #c6f6d5;
+    color: #276749;
+}
+
+.confirmed-box {
+    font-family: 'Inter', sans-serif;
+    background: #f0fff4;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #c6f6d5;
+    color: #276749;
+    margin-top: 10px;
+}
+
+.form-confirmacion {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.form-confirmacion input {
+    font-family: 'Inter', sans-serif;
+    flex: 1;
+    padding: 8px 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    min-width: 150px;
+}
+
+.btn-confirmar {
+    font-family: 'Inter', sans-serif;
+    background: #48bb78;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.3s;
+}
+
+.btn-confirmar:hover {
+    background: #38a169;
+}
+
+/* ============================================================
+   20. REGISTROS (Uniforme)
+   ============================================================ */
+.register-wrapper {
+    max-width: 560px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.register-card {
+    padding: 30px 28px;
+}
+
+.info-box {
+    background: #f7fafc;
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+}
+
+.info-box .titulo-seccion {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    color: #1a365d;
+    margin-bottom: 12px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.warning-box {
+    font-family: 'Inter', sans-serif;
+    background: #fffbeb;
+    border: 1px solid #f6ad55;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin: 10px 0;
+    color: #975a16;
+    font-size: 12px;
+    text-align: center;
+}
+
+.student-number-display {
+    font-family: 'Inter', sans-serif;
+    background: #f0fff4;
+    border: 1px solid #48bb78;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 14px;
+    color: #276749;
+    font-size: 13px;
+    text-align: center;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+/* ============================================================
+   21. AYUDA
+   ============================================================ */
+.ayuda-wrapper {
+    max-width: 820px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.ayuda-card {
+    padding: 30px 28px;
+}
+
+.seccion-ayuda {
+    background: #f7fafc;
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.seccion-ayuda:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transform: translateY(-2px);
+}
+
+.seccion-ayuda .titulo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.seccion-ayuda .titulo .icono {
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a365d;
+    background: #e2e8f0;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.seccion-ayuda .titulo h3 {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 16px;
+    color: #1a365d;
+    font-weight: 700;
+}
+
+.seccion-ayuda .titulo h3 span {
+    color: #e8c84c;
+}
+
+.seccion-ayuda p {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #4a5568;
+    line-height: 1.6;
+    margin: 4px 0;
+}
+
+.seccion-ayuda ul {
+    padding-left: 20px;
+    margin: 4px 0;
+}
+
+.seccion-ayuda ul li {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #4a5568;
+    padding: 3px 0;
+    list-style: none;
+    position: relative;
+    padding-left: 22px;
+}
+
+.seccion-ayuda ul li::before {
+    content: '[+]';
+    position: absolute;
+    left: 0;
+    font-size: 12px;
+    color: #1a365d;
+    font-weight: 700;
+}
+
+/* ============================================================
+   22. RESPONSIVE
+   ============================================================ */
+@media (max-width: 992px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-grid {
+        grid-template-columns: 1fr;
+    }
+    .action-grid {
+        grid-template-columns: 1fr;
+    }
+    .admin-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 16px;
+    }
+    .admin-user {
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .login-wrapper {
+        max-width: 100%;
+    }
+    .login-card,
+    .card,
+    .register-card,
+    .ayuda-card {
+        padding: 22px 18px;
+    }
+    .boletin-paper .info-grid {
+        grid-template-columns: 1fr;
+    }
+    .boletin-paper .firmas {
+        grid-template-columns: 1fr 1fr;
+    }
+    .form-confirmacion {
+        flex-direction: column;
+    }
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    .login-card,
+    .card,
+    .admin-container,
+    .register-card,
+    .ayuda-card,
+    .boletin-paper {
+        padding: 16px 14px;
+        border-radius: 16px;
+    }
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    .encabezado h1 {
+        font-size: 20px;
+    }
+    .encabezado h2 {
+        font-size: 18px;
+    }
+    .login-title h2 {
+        font-size: 20px;
+    }
+    .register-links {
+        flex-direction: column;
+    }
+    .register-links a {
+        width: 100%;
+        justify-content: center;
+    }
+    .form-options {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 13px;
+        padding: 10px 14px 10px 38px;
+    }
+    .btn-login,
+    .btn {
+        font-size: 14px;
+        padding: 12px;
+    }
+    .boletin-paper .firmas {
+        grid-template-columns: 1fr;
+    }
+    .boletin-paper .literal-box .literal {
+        font-size: 28px;
+    }
+}
+
+/* ============================================================
+   23. SCROLLBAR PERSONALIZADA
+   ============================================================ */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #1a365d, #e8c84c);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #2d4a7a, #d4a830);
+}
+
+/* ============================================================
+   24. SELECCIÓN DE TEXTO
+   ============================================================ */
+::selection {
+    background: #e8c84c;
+    color: #1a365d;
+}
